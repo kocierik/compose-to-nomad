@@ -17,12 +17,8 @@ job "webapp" {
 				volume = "webapp-data:/var/lib/webapp"
 			}
 			resources {
-				network {
-					mbits = 10
-					port "webapp_port" {
-						static = 5000
-					}
-				}
+        cpu = 1000
+        memory = 1000
 			}
 		}
 	}

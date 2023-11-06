@@ -9,16 +9,9 @@ job "redis" {
 				image = "redis:alpine"
 				ports = ["redis_port"]
 			}
-			volume_mount {
-				volume = "redis-data:/data"
-			}
 			resources {
-				network {
-					mbits = 10
-					port "redis_port" {
-						static = 6379
-					}
-				}
+        cpu = 1000
+        memory = 1000
 			}
 		}
 	}

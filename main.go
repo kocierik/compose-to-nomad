@@ -52,14 +52,8 @@ const nomadJobTemplate = `job "{{.Name}}" {
 			}
 			{{- end}}
 			resources {
-				network {
-					{{- range .Ports}}
-					mbits = 10
-					port "{{.Label}}" {
-						static = {{.ContainerPort}}
-					}
-					{{- end}}
-				}
+        cpu = 1000
+        memory = 1000
 			}
 		}
 	}
