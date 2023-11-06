@@ -1,0 +1,25 @@
+version: '3.8'
+services:
+  webapp:
+    image: my-web-app:latest
+    ports:
+      - "5000:5000"
+    environment:
+      - DEBUG=true
+      - REDIS_HOST=redis
+    volumes:
+      - webapp-data:/var/lib/webapp
+    depends_on:
+      - redis
+
+  redis:
+    image: redis:alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+
+volumes:
+  webapp-data:
+  redis-data:
+
