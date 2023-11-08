@@ -2,11 +2,13 @@ package nomadTemplate
 
 const NomadJobTemplate = `job "{{.Name}}" {
 	group "group-{{.Name}}" {
+
 		network {
 			{{- range .Ports}}
 			port "{{.Label}}" {}
 			{{- end}}
 		}
+
 		task "task-{{.Name}}" {
 			driver = "docker"
 			config {
@@ -17,13 +19,6 @@ const NomadJobTemplate = `job "{{.Name}}" {
 			env {
 				{{- range .Environment}}
 				{{ $keyval := splitN . "=" 2 }}{{index $keyval 0}} = "{{index $keyval 1}}"
-				{{- end}}
-			}
-			{{- end}}
-			{{- if .Volumes}}
-			volume_mount {
-				{{- range .Volumes}}
-				volume = "{{.}}"
 				{{- end}}
 			}
 			{{- end}}
