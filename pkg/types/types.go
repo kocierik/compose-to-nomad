@@ -6,9 +6,9 @@ type ComposeFile struct {
 }
 
 type ServiceConfig struct {
-	Image       string
-	Ports       []string
-	Environment []string
-	Volumes     []string
-	DependsOn   []string `yaml:"depends_on"`
+	Image          string   `yaml:"image"`
+	Container_name string   `yaml:"container_name"`
+	Restart        string   `yaml:"restart"`
+	Ports          []string `yaml:"ports"`
+	Environment    []string `yaml:"environment"`
 }

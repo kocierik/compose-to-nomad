@@ -2,14 +2,13 @@ package nomad
 
 import (
 	"fmt"
+	"github.com/kocierik/compose-to-nomad/pkg/nomadTemplate"
+	"github.com/kocierik/compose-to-nomad/pkg/types"
 	"log"
 	"os"
 	"strconv"
 	"strings"
 	"text/template"
-
-	"github.com/kocierik/compose-to-nomad/pkg/nomadTemplate"
-	"github.com/kocierik/compose-to-nomad/pkg/types"
 )
 
 func ParseTemplate() *template.Template {
@@ -46,13 +45,11 @@ func prepareJobData(name string, service types.ServiceConfig) map[string]interfa
 			})
 		}
 	}
-
 	return map[string]interface{}{
 		"Name":        name,
 		"Image":       service.Image,
 		"Ports":       ports,
 		"Environment": service.Environment,
-		"Volumes":     service.Volumes,
 	}
 }
 

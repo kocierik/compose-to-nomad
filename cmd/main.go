@@ -3,7 +3,6 @@ package main
 import (
 	"flag"
 	"fmt"
-	"log"
 	"os"
 
 	"github.com/kocierik/compose-to-nomad/pkg/compose"
@@ -27,11 +26,8 @@ func main() {
 		printUsageAndExit(" You must specify a path to a Docker Compose file using the -compose-file flag.\n")
 	}
 
-	if *composeFilePath == "" {
-		log.Fatal(" You must specify a path to a Docker Compose file using the -compose-file flag.\n")
-	}
-
 	composeFile := compose.ReadComposeFile(*composeFilePath)
+
 	tmpl := nomad.ParseTemplate()
 	utils.CreateOutputDirectory(*outputDirPath)
 
