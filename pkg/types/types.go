@@ -9,6 +9,7 @@ type ServiceConfig struct {
 	Image          string   `yaml:"image"`
 	Container_name string   `yaml:"container_name"`
 	Restart        string   `yaml:"restart"`
+	Volumes        []string `yaml:"volumes"`
 	Ports          []string `yaml:"ports"`
 	Environment    []string `yaml:"environment"`
 }

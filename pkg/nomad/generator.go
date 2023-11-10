@@ -45,11 +45,25 @@ func prepareJobData(name string, service types.ServiceConfig) map[string]interfa
 			})
 		}
 	}
+
+	volumes := make([]map[string]interface{}, 0)
+	for _, portMapping := range service.Volumes {
+		parts := strings.Split(portMapping, ":")
+		if len(parts) == 2 {
+			volumes = append(volumes, map[string]interface{}{
+				"Source":       parts[0],
+				"Destionation": parts[1],
+				"Label":        name,
+			})
+		}
+	}
+
 	return map[string]interface{}{
 		"Name":        name,
 		"Image":       service.Image,
 		"Ports":       ports,
 		"Environment": service.Environment,
+		"Volumes":     volumes,
 	}
 }
 
