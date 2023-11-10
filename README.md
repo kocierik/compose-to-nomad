@@ -16,4 +16,4 @@ go run cmd/main.go -compose-file example/docker-compose.yml  -output-dir example
 - [x] Image Specification 
 - [x] Port Mapping 
 - [x] Environment Variables
-- [ ] Volume Mapping
+- [x] Volume Mapping
