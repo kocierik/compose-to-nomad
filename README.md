@@ -12,8 +12,9 @@ go run cmd/main.go -compose-file example/docker-compose.yml  -output-dir example
 
 ##  Currently supported
 
-- [x] Service Conversion
 - [x] Image Specification 
 - [x] Port Mapping 
 - [x] Environment Variables
 - [x] Volume Mapping
+- [ ] Health check
+- [ ] Services
